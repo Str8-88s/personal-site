@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Thomas Witherow — Full-Stack Developer">
+  <section class="hero container">
+    <p class="eyebrow">Full-Stack Developer</p>
+    <h1>Thomas Witherow</h1>
+    <p class="bio">
+      I build production-grade web applications with TypeScript, Node.js, and React.
+      Previously SDET — I write well-tested code by default.
+    </p>
+    <div class="cta-row">
+      <a href="/projects" class="btn-primary">View Projects</a>
+      <a href="/blog" class="btn-secondary">Read the Blog</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .eyebrow {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .bio {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background var(--transition);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    color: #fff;
+  }
+
+  .btn-secondary {
+    color: var(--text-muted);
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color var(--transition), border-color var(--transition);
+  }
+
+  .btn-secondary:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+</style>

@@ -1,0 +1,165 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Thomas Witherow — Full-Stack Developer" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <!-- Prevent flash of wrong theme — must run before stylesheets -->
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', stored || preferred);
+      })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="logo">tw</a>
+        <nav>
+          <a href="/projects">Projects</a>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <span class="icon-sun">☀︎</span>
+          <span class="icon-moon">☽</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span class="text-muted">Thomas Witherow</span>
+        <div class="footer-links">
+          <a href="https://github.com/Str8-88s" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      toggle?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    transition: background-color 150ms ease;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .logo {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text);
+    letter-spacing: -0.03em;
+    margin-right: auto;
+  }
+
+  .logo:hover {
+    color: var(--accent);
+  }
+
+  nav {
+    display: flex;
+    gap: 1.75rem;
+  }
+
+  nav a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color var(--transition);
+  }
+
+  nav a:hover {
+    color: var(--text);
+  }
+
+  #theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: border-color var(--transition), color var(--transition);
+  }
+
+  #theme-toggle:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+
+  [data-theme="light"] .icon-moon { display: none; }
+  [data-theme="dark"] .icon-sun { display: none; }
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+  }
+
+  .footer-links a:hover {
+    color: var(--text);
+  }
+</style>

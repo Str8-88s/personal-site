@@ -2,8 +2,8 @@
 
 ## Current Status
 
-**Phase:** Planning → Week 1 (ready to start)
-**Current Week:** Week 1 (not started)
+**Phase:** Week 1 — In Progress
+**Current Week:** Week 1
 **Last Updated:** May 20, 2026
 **Deployment Target:** Vercel
 **Production URL:** TBD
@@ -14,7 +14,7 @@
 ## Plan
 
 ### Week 1
-- [ ] **Day 1–2:** Astro setup, Vercel skeleton deploy, CSS variable system + dark mode toggle
+- [x] **Day 1–2:** Astro setup, Vercel skeleton deploy, CSS variable system + dark mode toggle
 - [ ] **Day 3–4:** Homepage + Projects page
 - [ ] **Day 5:** Blog infrastructure (content collection, index, post template)
 
@@ -35,6 +35,16 @@
 - Finalized 2-week build schedule
 - Context files updated
 
+### Session 2 — May 20, 2026
+- Astro scaffolded via `npm create astro@latest` — empty template, strict TypeScript
+- Resolved nested folder issue (scaffold created `personal-site/personal-site/`) — moved files up via PowerShell
+- Foundation files created:
+  - `public/styles/global.css` — full CSS variable system (light/dark), reset, typography, layout utilities
+  - `src/layouts/BaseLayout.astro` — base HTML shell with inline dark mode script (prevents flash), Google Fonts (DM Sans + DM Mono), sticky header with nav, footer
+  - `src/pages/index.astro` — hero section wired to BaseLayout, CTA buttons
+- Dark mode toggle implemented: inline script in `<head>` reads localStorage before paint, button toggles `data-theme` on `<html>` and writes to localStorage
+- Dev server confirmed running at localhost:4321
+
 ---
 
 ## Technical & Design Decisions Log
@@ -49,6 +59,7 @@
 | May 20 | Blog | Astro content collections | Built-in, type-safe, slug routing included |
 | May 20 | Contact | Formspree | No backend needed; free tier is 50 submissions/month — sufficient for portfolio |
 | May 20 | Domain | `thomaswitherow.dev` | `.dev` is stronger signal for a developer than `.com` |
+| May 20 | Fonts | DM Sans + DM Mono via Google Fonts | Clean, professional, distinctive without being loud — pairs well with the slate palette |
 
 ---
 
@@ -66,14 +77,26 @@
 ```
 personal-site/
 ├── .claude/
-│   └── personal-site-instructions.md
+│   ├── personal-site-instructions.md
+│   ├── personal-site-progress.md
+│   └── personal-site-decisions.md
+├── public/
+│   └── styles/
+│       └── global.css
+├── src/
+│   ├── layouts/
+│   │   └── BaseLayout.astro
+│   └── pages/
+│       └── index.astro
 ├── .gitignore
-└── README.md
+├── astro.config.mjs
+├── package.json
+├── README.md
+└── tsconfig.json
 ```
 
 ## Outstanding / Next Session
 
-- Astro scaffold (`npm create astro@latest`)
-- Vercel project created and connected to repo
-- CSS variable system + dark mode toggle implemented
-- Inline script in `<head>` — must run before stylesheets to prevent flash
+- Day 3–4: Homepage content (featured project card, latest blog preview) + Projects page
+- Day 5: Blog infrastructure — Astro content collection, index page, post template
+- Connect repo to Vercel for skeleton deploy (can do anytime)

@@ -38,9 +38,9 @@ Format:
 ---
 
 **Decision:** Dark mode implementation
-**Choice:** Inline script in `<head>` reads `localStorage` before paint, toggle as an Astro island component
+**Choice:** Inline script in `<head>` reads `localStorage` before paint, toggle button writes back to `localStorage` and sets `data-theme` on `<html>`
 **Alternatives considered:** CSS media query only (no toggle), JS after paint (causes flash)
-**Why:** Reading localStorage before paint is the only way to prevent a flash of the wrong theme on page load. Must be placed before any stylesheets in `<head>`. Island component keeps JS isolated and minimal.
+**Why:** Reading localStorage before paint is the only way to prevent a flash of the wrong theme on page load. Must be placed before any stylesheets in `<head>`. Keeps toggle logic simple — no island component needed, just a plain script tag in the layout.
 
 ---
 
@@ -62,3 +62,17 @@ Format:
 **Choice:** `thomaswitherow.dev`
 **Alternatives considered:** `thomaswitherow.com`
 **Why:** `.dev` is a stronger signal for a developer. Purchase when ready to go live.
+
+---
+
+**Decision:** Fonts
+**Choice:** DM Sans (body) + DM Mono (code) via Google Fonts
+**Alternatives considered:** System fonts, Inter
+**Why:** DM Sans is clean and professional without being generic. DM Mono pairs naturally for code snippets. Both are variable-weight, load fast, and avoid the overused Inter look.
+
+---
+
+**Decision:** CSS file location
+**Choice:** `public/styles/global.css` (served as static asset)
+**Alternatives considered:** `src/styles/global.css` imported via bundler
+**Why:** Linked via plain `<link>` tag in BaseLayout — no bundler involvement needed. Public directory is the correct location for assets referenced by URL path.
