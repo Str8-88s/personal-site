@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact — Thomas Witherow">
+  <div class="container">
+    <section class="page-header">
+      <h1>Contact</h1>
+      <p class="subtitle">Get in touch.</p>
+    </section>
+
+    <section class="contact-content">
+      <p class="intro">
+        I'm currently open to full-stack developer roles. If you're working on something
+        interesting or want to talk shop, reach out.
+      </p>
+
+      <div class="contact-options">
+        <a href="mailto:shortness-pry-keg@duck.com" class="contact-link">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">shortness-pry-keg@duck.com</span>
+        </a>
+        <a href="https://github.com/Str8-88s" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/Str8-88s</span>
+        </a>
+        <a href="https://linkedin.com/in/thomas-witherow" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/thomas-witherow</span>
+        </a>
+      </div>
+
+      <div class="form-section">
+        <h2>Send a message</h2>
+        <form action="https://formspree.io/f/xnjrdolj" method="POST" class="contact-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+
+  .contact-content {
+    padding-bottom: 5rem;
+    max-width: 560px;
+  }
+
+  .intro {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-link {
+    display: flex;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition);
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+  }
+
+  .contact-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    min-width: 60px;
+  }
+
+  .contact-value {
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .form-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  input, textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.85rem;
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    transition: border-color var(--transition);
+    width: 100%;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .btn-primary {
+    align-self: flex-start;
+  }
+</style>
