@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog — Thomas Witherow">
+  <div class="container">
+    <section class="page-header">
+      <h1>Blog</h1>
+      <p class="subtitle">Writing about things I've built and learned.</p>
+    </section>
+
+    <section class="post-list">
+      {posts.map((post) => (
+        <article class="post-item">
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <h2>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
+          </h2>
+          <p class="post-excerpt">{post.data.description}</p>
+          <a href={`/blog/${post.id}`} class="read-more">Read more →</a>
+        </article>
+      ))}
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+
+  .post-list {
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .post-item time {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .post-item h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-item h2 a {
+    color: var(--text);
+  }
+
+  .post-item h2 a:hover {
+    color: var(--accent);
+  }
+
+  .post-excerpt {
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 0.5rem;
+  }
+
+  .read-more {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .read-more:hover {
+    color: var(--accent-hover);
+  }
+</style>
