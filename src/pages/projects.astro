@@ -1,0 +1,176 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Projects — Thomas Witherow">
+  <div class="container">
+    <section class="page-header">
+      <h1>Projects</h1>
+      <p class="subtitle">What I've built and how I built it.</p>
+    </section>
+
+    <section class="projects-list">
+      <div class="project-card">
+        <div class="project-card-header">
+          <h2>DevOps Dashboard</h2>
+          <div class="project-links">
+            <a href="https://devops-dashboard-985792054692.us-east1.run.app" target="_blank" rel="noopener">Live ↗</a>
+            <a href="https://github.com/Str8-88s/devops-dashboard" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://devops-dashboard-985792054692.us-east1.run.app/api/docs" target="_blank" rel="noopener">API Docs ↗</a>
+          </div>
+        </div>
+
+        <p class="project-desc">
+          A team metrics and developer tools platform built to production standards.
+          Includes JWT authentication with httpOnly cookie refresh tokens, real-time
+          updates via Socket.io, Redis caching and rate limiting, structured logging
+          with Pino, and a full CI/CD pipeline to Google Cloud Run via GitHub Actions.
+        </p>
+
+        <div class="project-details">
+          <div class="detail-block">
+            <p class="detail-label">What it does</p>
+            <p>User management with role-based access control, a real-time activity
+            feed, and a REST API with full OpenAPI documentation. 94% test coverage
+            via Jest and Supertest.</p>
+          </div>
+          <div class="detail-block">
+            <p class="detail-label">Infrastructure</p>
+            <p>Deployed to GCP Cloud Run with Supabase (PostgreSQL) and Upstash (Redis).
+            Authenticated via Workload Identity Federation — no long-lived credentials
+            stored anywhere. Docker-based build pipeline.</p>
+          </div>
+        </div>
+
+        <ul class="tag-list">
+          <li>TypeScript</li>
+          <li>Node.js</li>
+          <li>React</li>
+          <li>PostgreSQL</li>
+          <li>Prisma</li>
+          <li>Redis</li>
+          <li>Socket.io</li>
+          <li>Docker</li>
+          <li>GCP</li>
+          <li>GitHub Actions</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+
+  .projects-list {
+    padding-bottom: 5rem;
+  }
+
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+  }
+
+  .project-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .project-card-header h2 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .project-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .project-links a:hover {
+    color: var(--accent-hover);
+  }
+
+  .project-desc {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 680px;
+  }
+
+  .project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .project-details {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .detail-block {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+  }
+
+  .detail-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .detail-block p:last-child {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tag-list li {
+    font-size: 0.78rem;
+    font-weight: 500;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    color: var(--text-muted);
+  }
+</style>
