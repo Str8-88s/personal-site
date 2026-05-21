@@ -75,4 +75,39 @@ Format:
 **Decision:** CSS file location
 **Choice:** `public/styles/global.css` (served as static asset)
 **Alternatives considered:** `src/styles/global.css` imported via bundler
-**Why:** Linked via plain `<link>` tag in BaseLayout — no bundler involvement needed. Public directory is the correct location for assets referenced by URL path.
+**Why:** Linked via plain `<link>` tag in BaseLayout — Astro serves static assets from `public/`. Files in `src/styles/` return 404 when referenced by URL path.
+
+---
+
+**Decision:** Button styles location
+**Choice:** `global.css` instead of scoped component `<style>` block
+**Alternatives considered:** Scoped styles in index.astro
+**Why:** Astro scoped styles don't reliably override the global `a { color: var(--accent) }` rule. Moving button styles to global.css ensures correct rendering across all pages.
+
+---
+
+**Decision:** Content config file location
+**Choice:** `src/content.config.ts`
+**Alternatives considered:** `src/content/config.ts` (Astro v4 style)
+**Why:** Astro v5 moved the content config file out of the content folder. Old location throws LegacyContentConfigError.
+
+---
+
+**Decision:** Content collection loader
+**Choice:** Explicit `glob()` loader in collection definition
+**Alternatives considered:** No loader (v4 style)
+**Why:** Astro v5 requires an explicit loader — the implicit loader was removed. `glob()` from `astro/loaders` is the standard replacement.
+
+---
+
+**Decision:** Post identifier
+**Choice:** `post.id` instead of `post.slug`
+**Alternatives considered:** `post.slug` (Astro v4 style)
+**Why:** Astro v5 glob loader uses `id` as the identifier. `post.slug` no longer exists on collection entries.
+
+---
+
+**Decision:** Contact email
+**Choice:** DuckDuckGo alias `shortness-pry-keg@duck.com`
+**Alternatives considered:** Real Gmail address, GitHub noreply (outbound only)
+**Why:** Forwards to real inbox without exposing it publicly. GitHub noreply only works for outbound commits, not inbound email.
