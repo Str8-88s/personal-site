@@ -2,6 +2,7 @@
    CSS CUSTOM PROPERTIES
    ============================================ */
 :root {
+  --surface: #efefef;
   --bg: #f8f8f8;
   --bg-secondary: #efefef;
   --text: #111111;
@@ -20,6 +21,7 @@
 }
 
 [data-theme="dark"] {
+  --surface: #2a2a40;
   --bg: #1a1a2e;
   --bg-secondary: #22223b;
   --text: #f0f0f0;
@@ -103,4 +105,40 @@ p {
 
 .text-muted {
   color: var(--text-muted);
+}
+
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background var(--transition);
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  color: #fff !important;
+}
+
+.btn-secondary {
+  color: var(--text-muted) !important;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color var(--transition), border-color var(--transition);
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  color: var(--text) !important;
+  border-color: var(--text-muted);
 }

@@ -15,6 +15,50 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <a href="/blog" class="btn-secondary">Read the Blog</a>
     </div>
   </section>
+
+  <section class="featured container">
+    <p class="section-label">Featured Project</p>
+    <div class="project-card">
+      <div class="project-card-header">
+        <h2>DevOps Dashboard</h2>
+        <div class="project-links">
+          <a href="https://devops-dashboard-985792054692.us-east1.run.app" target="_blank" rel="noopener">Live ↗</a>
+          <a href="https://github.com/Str8-88s/devops-dashboard" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+      <p class="project-desc">
+        A team metrics and developer tools platform built to production standards —
+        JWT authentication, real-time updates via Socket.io, Redis caching, rate limiting,
+        and a full CI/CD pipeline to Google Cloud Run.
+      </p>
+      <ul class="tag-list">
+        <li>TypeScript</li>
+        <li>Node.js</li>
+        <li>React</li>
+        <li>PostgreSQL</li>
+        <li>Redis</li>
+        <li>Docker</li>
+        <li>GCP</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="blog-preview container">
+    <p class="section-label">From the Blog</p>
+    <div class="post-card">
+      <h3>
+        <a href="/blog/building-a-production-nodejs-api">
+          What I Learned Building a Production Node.js API From Scratch
+        </a>
+      </h3>
+      <p class="post-excerpt">
+        An honest account of what actually cost me time — Prisma v7 breaking changes,
+        Workload Identity Federation, JWT token rotation edge cases, and what 94% test
+        coverage taught me about integration testing.
+      </p>
+      <a href="/blog/building-a-production-nodejs-api" class="read-more">Read more →</a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -77,5 +121,113 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .btn-secondary:hover {
     color: var(--text);
     border-color: var(--text-muted);
+  }
+
+  /* Shared section spacing */
+  .featured,
+  .blog-preview {
+    padding: 0 1.5rem 5rem;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  /* Project card */
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+  }
+
+  .project-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .project-card-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .project-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .project-links a:hover {
+    color: var(--accent-hover);
+  }
+
+  .project-desc {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    max-width: 640px;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tag-list li {
+    font-size: 0.78rem;
+    font-weight: 500;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    color: var(--text-muted);
+  }
+
+  /* Blog preview */
+  .post-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .post-card h3 a {
+    color: var(--text);
+  }
+
+  .post-card h3 a:hover {
+    color: var(--accent);
+  }
+
+  .post-excerpt {
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 0.75rem;
+  }
+
+  .read-more {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .read-more:hover {
+    color: var(--accent-hover);
   }
 </style>
