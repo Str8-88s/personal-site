@@ -111,3 +111,10 @@ Format:
 **Choice:** DuckDuckGo alias `shortness-pry-keg@duck.com`
 **Alternatives considered:** Real Gmail address, GitHub noreply (outbound only)
 **Why:** Forwards to real inbox without exposing it publicly. GitHub noreply only works for outbound commits, not inbound email.
+
+---
+
+**Decision:** Date frontmatter format
+**Choice:** ISO format `2026-05-18T00:00:00.000Z`
+**Alternatives considered:** Plain `YYYY-MM-DD` string
+**Why:** Astro v5 Zod date schema requires a parseable date object. Plain date strings fail validation and throw InvalidContentEntryDataError.
