@@ -2,12 +2,12 @@
 
 ## Current Status
 
-**Phase:** Week 2 — In Progress
+**Phase:** Week 2 — Complete
 **Current Week:** Week 2
-**Last Updated:** May 23, 2026
+**Last Updated:** June 8, 2026
 **Deployment Target:** Vercel
-**Production URL:** https://personal-site-gamma-lilac.vercel.app/
-**Domain:** `thomaswitherow.dev` (purchase June 1st)
+**Production URL:** https://thomaswitherow.dev
+**Domain:** `thomaswitherow.dev` ✓ (purchased June 8, 2026 via Porkbun — $9.81/yr)
 
 ---
 
@@ -21,8 +21,9 @@
 ### Week 2
 - [x] **Day 1:** Migrate `docs/blog-post.md` into Astro content collection — reviewed and edited before migrating
 - [x] **Day 2:** Polish pass — mobile, light mode, typography verified
-- [ ] **Day 3:** Verify Formspree end to end on production URL
-- [ ] **Day 5:** Purchase `thomaswitherow.dev`, point to Vercel, go live (June 1st)
+- [x] **Day 3:** Domain purchased, DNS configured, site live at thomaswitherow.dev
+- [ ] **Remaining:** Verify Formspree end to end on production URL
+- [ ] **Remaining:** LinkedIn update — add live site URL and blog post link
 
 ---
 
@@ -50,16 +51,17 @@
 - Fixed GitHub email privacy push rejection
 
 ### Session 4 — May 23, 2026
-- Blog post reviewed and edited before migrating:
-  - "for a while now" → "for 3 years"
-  - "over the past several weeks" → "over the past month"
-  - ADR link updated to full GitHub URL
-  - Date frontmatter fixed to ISO format (`2026-05-18T00:00:00.000Z`)
+- Blog post reviewed and edited before migrating
 - Full blog post migrated to `src/content/blog/building-a-production-nodejs-api.md`
 - Mobile responsiveness verified — all pages hold up at ~375px
 - Light mode verified — both themes render correctly
 - Site feature complete at Vercel URL
-- Domain purchase deferred to June 1st
+
+### Session 5 — June 8, 2026
+- Purchased `thomaswitherow.dev` via Porkbun ($9.81/yr, includes free WHOIS privacy)
+- Added domain in Vercel — deleted default Porkbun ALIAS + CNAME records, added A record pointing to `216.198.79.1`
+- DNS propagating — site resolving at `thomaswitherow.dev`
+- Old Vercel URL (`personal-site-gamma-lilac.vercel.app`) set to 307 redirect to `thomaswitherow.dev`
 
 ---
 
@@ -83,6 +85,9 @@
 | May 21 | Post identifier | `post.id` not `post.slug` | Astro v5 glob loader uses `id` |
 | May 21 | Contact email | DuckDuckGo alias | Forwards to real inbox without exposing it publicly |
 | May 23 | Date frontmatter | ISO format `2026-05-18T00:00:00.000Z` | Astro v5 Zod schema requires parseable date — plain `YYYY-MM-DD` fails |
+| Jun 8 | Domain registrar | Porkbun over Namecheap | Namecheap showed `thomaswitherow.dev` as "banned"; Porkbun had it available |
+| Jun 8 | DNS config | A record `@` → `216.198.79.1` | Vercel's current recommended IP; deleted default Porkbun ALIAS + CNAME first |
+| Jun 8 | Old URL handling | 307 redirect to `thomaswitherow.dev` | Keeps old Vercel URL working, forwards traffic to custom domain |
 
 ---
 
@@ -93,8 +98,8 @@
 - Node.js v24.15.0 ✓
 - GitHub repo: `Str8-88s/personal-site`
 - Deployment: Vercel (auto-deploy on push to main)
-- Production URL: https://personal-site-gamma-lilac.vercel.app/
-- Domain: `thomaswitherow.dev` (purchase June 1st)
+- Production URL: https://thomaswitherow.dev
+- Domain: `thomaswitherow.dev` — registered at Porkbun, $9.81/yr, renews ~$12.87/yr
 - Formspree form ID: `xnjrdolj`
 
 ## File Structure (current)
@@ -133,6 +138,6 @@ personal-site/
 
 ## Outstanding / Next Session
 
-1. **Go live** — purchase `thomaswitherow.dev` on June 1st, point to Vercel
-2. **LinkedIn update** — add live site URL and blog post link after domain is live
-3. **Formspree production verify** — send a test submission from the live Vercel URL
+1. **Formspree verify** — send a test submission from thomaswitherow.dev/contact
+2. **LinkedIn update** — add thomaswitherow.dev and blog post link
+3. **DNS confirm** — verify thomaswitherow.dev loads cleanly with HTTPS once propagation completes
