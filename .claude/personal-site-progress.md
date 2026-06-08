@@ -2,10 +2,8 @@
 
 ## Current Status
 
-**Phase:** Week 2 — Complete
-**Current Week:** Week 2
+**Phase:** Complete
 **Last Updated:** June 8, 2026
-**Deployment Target:** Vercel
 **Production URL:** https://thomaswitherow.dev
 **Domain:** `thomaswitherow.dev` ✓ (purchased June 8, 2026 via Porkbun — $9.81/yr)
 
@@ -13,17 +11,17 @@
 
 ## Plan
 
-### Week 1
+### Week 1 ✓
 - [x] **Day 1–2:** Astro setup, Vercel skeleton deploy, CSS variable system + dark mode toggle
 - [x] **Day 3–4:** Homepage + Projects page
 - [x] **Day 5:** Blog infrastructure (content collection, index, post template)
 
-### Week 2
+### Week 2 ✓
 - [x] **Day 1:** Migrate `docs/blog-post.md` into Astro content collection — reviewed and edited before migrating
 - [x] **Day 2:** Polish pass — mobile, light mode, typography verified
 - [x] **Day 3:** Domain purchased, DNS configured, site live at thomaswitherow.dev
-- [ ] **Remaining:** Verify Formspree end to end on production URL
-- [ ] **Remaining:** LinkedIn update — add live site URL and blog post link
+- [x] **Day 3:** Formspree verified end to end on production URL
+- [x] **Day 3:** LinkedIn updated — thomaswitherow.dev added to contact info
 
 ---
 
@@ -60,8 +58,10 @@
 ### Session 5 — June 8, 2026
 - Purchased `thomaswitherow.dev` via Porkbun ($9.81/yr, includes free WHOIS privacy)
 - Added domain in Vercel — deleted default Porkbun ALIAS + CNAME records, added A record pointing to `216.198.79.1`
-- DNS propagating — site resolving at `thomaswitherow.dev`
 - Old Vercel URL (`personal-site-gamma-lilac.vercel.app`) set to 307 redirect to `thomaswitherow.dev`
+- Formspree verified — test submission received at inbox from thomaswitherow.dev
+- LinkedIn updated — `thomaswitherow.dev` added to contact info, email visibility restricted
+- **Site is live and complete**
 
 ---
 
@@ -138,6 +138,4 @@ personal-site/
 
 ## Outstanding / Next Session
 
-1. **Formspree verify** — send a test submission from thomaswitherow.dev/contact
-2. **LinkedIn update** — add thomaswitherow.dev and blog post link
-3. **DNS confirm** — verify thomaswitherow.dev loads cleanly with HTTPS once propagation completes
+- Project is complete. Future sessions would cover enhancements only — second blog post, additional projects, etc.
